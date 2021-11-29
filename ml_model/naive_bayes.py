@@ -97,4 +97,5 @@ class  NaiveBayes:
         sorted_percentage_outcome = sorted(percentage_outcome.items(), key=lambda x:x[1], reverse=True)
 #         print(sorted_percentage_outcome[:10]) 
         return sorted_percentage_outcome[:6]
- 
+
+# 		return np.array(results)

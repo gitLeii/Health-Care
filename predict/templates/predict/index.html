@@ -87,7 +87,7 @@
 								<div style="color:red;" >{{msg}}</div>
 							{% endfor %}
 						{% endif %}
-							<form method="POST" action="{% url 'predict:index' %}" class="home_search_form" id="home_search_form">
+							<form method="POST"  class="home_search_form" id="home_search_form">
 								{% csrf_token %}
 								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
 									 
@@ -115,9 +115,9 @@
 											<option value="{{symptom.name}}">{{ symptom.name }}</option> 
 										{% endfor %}
 									</select>
- 
-									
 									<button type="submit" class="home_search_button">Predict</button>
+									<a href="#destinations" id="go_here_id" type="hidden"></a>
+
 								</div>
 							</form>
 						</div>
@@ -176,7 +176,7 @@
 		</div>
 	</div>
 
-	<!-- Destinations -->
+	<!-- Predicted Disease -->
 
 	<div class="destinations" id="destinations">
 		<div class="container">
@@ -188,8 +188,9 @@
 			</div>
 			<div class="row destinations_row">
 				<div class="col">
-					<div class="destinations_container item_grid"> 
+					<div class="destinations_container item_grid" id="p_result">  
 
+					<!-- Below part is without using fetch api-->
 						{% for disease in predicted_disease_description %} 
 
 							<div class="destination item">
@@ -201,8 +202,8 @@
 								</div>
 								<div class="destination_content">
 									<div class="destination_title"><a href="fruits.html">{{ disease.name|truncatechars:25 }} </a></div>
-									<div class="destination_subtitle"><p>{{ disease.description|truncatechars:100 }}</p></div>
-									<div class="destination_price">{{ disease.percentage }}% </div>
+									<div class="destination_subtitle"><p>{{ disease.description|truncatechars:80 }}<a href="{% url 'predict:disease_detail' disease.id %}" style="color:skyblue;" target="_blank">more</a></p></div>
+									{% comment %} <div class="destination_price">{{ disease.percentage }}% </div> {% endcomment %}
 								</div>
 							</div> 
 						{% endfor %}
@@ -375,4 +376,7 @@
 	</div>
 
 	<!-- Footer -->
+ 
+		{% include 'predict/index_js.html' %} 
 {% endblock %}
+ 

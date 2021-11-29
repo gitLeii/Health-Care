@@ -1362,3 +1362,19 @@ section
 {
 	margin-bottom: 7px;
 }
+
+/* chollok code  */
+@media screen and (max-width: 1250px) {
+	.destination.item.predicted{
+		display: block;
+	width: 50%;
+	}}
+	@media screen and (max-width: 990px) {
+		.destination.item.predicted{
+	
+			width: 100%;
+		}}
+@media screen and (min-width: 1250px) {
+.destination.item.predicted{
+	display: inline-block;
+}}

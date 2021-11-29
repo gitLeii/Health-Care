@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+Disease detail
+{% endblock title %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h1>{{ disease.name }}</h1>
+    <p>{{ disease.description }}</p>
+    <hr>
+    <ul>
+        {% for s in disease.disease_symptom.all %}
+            <li>{{ s.name }}</li>
+        {% endfor %}
+    </ul>
+    <hr>
+    <h2>Prevention</h2>
+    <p>{{ disease.prevention|linebreaks  }}</p>
+</div>
+{% endblock %}
