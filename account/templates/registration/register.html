@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+Disease register
+{% endblock title %}
+
+{% block content %}
+
+<div class="container mt-5">
+     <h1>Register</h1>
+
+     <form method="POST" novalidate>
+        {% csrf_token %} 
+
+        {% for fm in form %}
+            {{ fm.label_tag }} {{ fm }} <span style="color:red;">{{ fm.errors|striptags }}</span><br><br>
+        {% endfor %}
+
+        <input type="submit" value="Register" class="btn btn-success">
+     </form>
+
+     <p> Already have an account? <a href="{% url 'account:login' %}">click here</a></p>
+
+
+</div>
+{% endblock %}

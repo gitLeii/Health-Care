@@ -10,9 +10,13 @@
 								<ul class="d-flex flex-row align-items-start justify-content-start">
 									<li class="active"><a href="{% url 'predict:index'%}">Home</a></li>
 									<li><a href="/">About us</a></li>
-									<li><a href="#">Services</a></li>
+									<li><a href="#">ALL disease</a></li>
 									<li><a href="/">News</a></li>
-									<li><a href="/">Contact</a></li>
+
+									{% if request.user.is_authenticated %}		
+										<li><a href="/">Feedback</a></li>
+										<li><a href="{% url 'account:logout' %}">Logout</a></li>
+									{% endif %}
 								</ul>
 							</nav>
 							<div class="header_phone ml-auto">Call us: **********</div>

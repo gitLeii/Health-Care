@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}
+Disease Login
+{% endblock title %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h1>Login</h1>
+
+    {% if messages %}
+        {% for msg in messages %}
+            <p style="color:green;">{{ msg }}</p>
+        {% endfor %}
+    {% endif %}
+
+
+    <form method="POST" novalidate>
+
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <p style="color:red">{{ error }}</p>
+            {% endfor %}
+        {% endif %}
+
+        {% csrf_token %} 
+
+        {% for fm in form %}
+            {{ fm.label_tag }} {{ fm }} <span style="color:red;">{{ fm.errors|striptags }}</span><br><br>
+        {% endfor %}
+
+        <input type="submit" value="Login" class="btn btn-success">
+     </form>
+
+    <p> Don't have an account? <a href="{% url 'account:register_user' %}">click here</a></p>
+
+</div>
+{% endblock %}

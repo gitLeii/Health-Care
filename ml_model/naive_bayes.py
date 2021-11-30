@@ -3,6 +3,12 @@ import pandas as pd
 
 class  NaiveBayes:
     def __init__(self): 
+        """ 
+        P(c) - Prior Class Probability 
+        P(x|c) - Likelihood
+        P(x) - Evidence
+        Calculates Posterior probability P(c|x)
+        """
         self.features = list
         self.likelihoods = {}
         self.class_priors = {}

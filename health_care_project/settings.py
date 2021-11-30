@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'predict'
+    'predict',
+    'account'
 ]
 
 MIDDLEWARE = [
@@ -136,3 +137,6 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = BASE_DIR /"uploads"
 MEDIA_URL = "/mediafiles/"
+
+LOGIN_REDIRECT_URL = "predict:index"
+LOGOUT_REDIRECT_URL = "predict:index"
